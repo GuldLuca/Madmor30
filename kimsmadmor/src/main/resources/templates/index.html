@@ -8,25 +8,7 @@
 <body>
 <h1>Flot velfungerende liste</h1>
 
-<div id="tablescroll">
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Adress</th>
-            <th>Phone Number</th>
-            <th>Quantity</th>
-            <th>E-mail</th>
-            <th>Payment Information</th>
-        </tr>
-        <tr th:each="customer : ${customer}">
-            <td th:text="${customer.id}"></td>
-            <td th:text="${customer.firstname}">Onions</td>
-            <td th:text="${customer.lastname}">2.41</td>
-        </tr>
-    </table>
-</div>
+
 
 <a href="/create" class="create">Create customer</a>
 
