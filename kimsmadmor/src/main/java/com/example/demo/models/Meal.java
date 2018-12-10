@@ -74,4 +74,8 @@ public class Meal
     {
         this.elements = elements;
     }
+
+    public void Hej(){
+        System.out.println("Hej");
+    }
 }
