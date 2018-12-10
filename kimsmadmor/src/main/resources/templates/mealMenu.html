@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>  Måltids menu</h1>
+
+<p>
+    <a href="/addmeal">
+        <button> Tilføj måltid</button>
+    </a>
+</p>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Date</th>
+        <th></th>
+    </tr>
+    <tbody>
+    <tr th:each="meal: ${meals}">
+        <td th:text="${meal.name}"/>
+        <td th:text="${meal.type}"/>
+        <td th:text="${meal.date}"/>
+
+        <td>
+            <a th:href="@{'/details?id='+${meal.id}}">
+                <button class="btn-details btn">details</button>
+            </a>
+            <a th:href="@{'/edit?id='+${meal.id}}">
+                <button class="btn-ed btn">edit</button>
+            </a>
+            <a th:href="@{'/delete?id='+${meal.id}}">
+                <button class="btn-del btn">delete</button>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+    </thead>
+</table>
+</body>
+</html>
