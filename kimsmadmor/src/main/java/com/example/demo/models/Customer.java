@@ -10,15 +10,15 @@ public class Customer
     private int phonenumber;
     private int quantityAdults;
     private int quantityChildren;
-    private int paymentInfo;
     private boolean active;
+    private String password;
 
     public Customer()
     {
 
     }
 
-    public Customer(int id, String firstname, String lastname, String adress, int phonenumber, String email, int quantityAdults, int quantityChildren, int paymentInfo, boolean active)
+    public Customer(int id, String firstname, String lastname, String adress, int phonenumber, String email, int quantityAdults, int quantityChildren, boolean active, String password)
     {
         this.id = id;
         this.firstname = firstname;
@@ -28,8 +28,8 @@ public class Customer
         this.phonenumber = phonenumber;
         this.quantityAdults = quantityAdults;
         this.quantityChildren = quantityChildren;
-        this.paymentInfo = paymentInfo;
         this.active = active;
+        this.password = password;
     }
 
     public int getId()
@@ -112,17 +112,17 @@ public class Customer
         this.quantityChildren = quantityChildren;
     }
 
-    public int getPaymentInfo()
-    {
-        return paymentInfo;
-    }
-
-    public void setPaymentInfo(int paymentInfo)
-    {
-        this.paymentInfo = paymentInfo;
-    }
-
     public boolean getActive(){return active;}
 
     public void setActive(boolean active){this.active = active;}
+
+    public String getPassword()
+    {
+        return password;
+    }
+
+    public void setPassword(String password)
+    {
+        this.password = password;
+    }
 }

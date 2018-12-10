@@ -69,10 +69,10 @@ public class DBManager {
         return mealList;
     }
 
-    public Meal readMeal(int id)
+   /* public Meal readMeal(int id)
     {
         return null;
-    }
+    }*/
 
 
 
@@ -134,22 +134,56 @@ public class DBManager {
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()){
                 int id = resultSet.getInt(1);
-                Date date = resultSet.getDate(2);
+                String name = resultSet.getString(2);
                 String description = resultSet.getString(3);
-                String name = resultSet.getString(4);
-                String elements = resultSet.getString(5);
-                String mealType = resultSet.getString(6);
-                list.add(new Meal(id,date, description, name, elements, mealType));
+                Date startDato = resultSet.getDate(4);
+                String address = resultSet.getString(5);
+                int capacity = resultSet.getInt(6);
+                int price_id = resultSet.getInt(7);
+                eventList.add(new Event(id,name, description, startDato, address, capacity, price_id));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return list;
+        return eventList;
     }
 
     public Meal readMeal(int id)
     {
         return null;
+    }
+
+    public void updateEvent(Event event)
+    {
+        String sql = "UPDATE event SET event_name = ? , event_description = ?, event_start = ?, event_address = ?, max_capacity = ?, price_id = ? WHERE id = ?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, event.getName());
+            preparedStatement.setString(2,event.getDescription());
+            preparedStatement.setDate(3, event.getStartDato());
+            preparedStatement.setString(4, event.getAddress());
+            preparedStatement.setInt(5, event.getCapacity());
+            preparedStatement.setInt(6, event.getPrice_id());
+            preparedStatement.executeUpdate();
+            System.out.println(event.getName() + " opdateret");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteEvent(Event event){
+        String sql = "DELETE FROM event WHERE id = ?";
+        try
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, event.getId());
+            int rowsAffected = preparedStatement.executeUpdate();
+            System.out.println("Slettet " + rowsAffected + " række(r).");
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 

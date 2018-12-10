@@ -75,20 +75,6 @@ public class HomeController {
         return "list";
     }
 
-    @RequestMapping(value = "/", params = "login")
-    public String login(Model model, Person person)
-    {
-        if(dbManager.login(person))
-        {
-            persons = dbManager.readAllPersons();
-        }
-        else
-        {
-            persons = new ArrayList<>();
-        }
-        model.addAttribute(personsStr, persons);
-        return "list";
-    }
 
 
 }
