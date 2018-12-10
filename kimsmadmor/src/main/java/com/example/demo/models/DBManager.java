@@ -49,7 +49,7 @@ public class DBManager {
 
     public List<Meal> readAllMeals(){
         String sql = "SELECT * FROM meal";
-        List<Meal> list = new ArrayList<>();
+        List<Meal> mealList = new ArrayList<>();
         try {
             //connection = DriverManager.getConnection(DB_URL,DB_USER, DB_PW);
             Statement statement = connection.createStatement();
@@ -61,12 +61,12 @@ public class DBManager {
                 String name = resultSet.getString(4);
                 String elements = resultSet.getString(5);
                 String mealType = resultSet.getString(6);
-                list.add(new Meal(id,date, description, name, elements, mealType));
+                mealList.add(new Meal(id,date, description, name, elements, mealType));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return list;
+        return mealList;
     }
 
     public Meal readMeal(int id)
@@ -108,26 +108,51 @@ public class DBManager {
         }
     }
 
-    public boolean login(Person person)
-    {
-        String sql = "SELECT * FROM person WHERE uname=? AND password=?";
-        try
-        {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, person.getUname());
-            preparedStatement.setString(2, person.getPassword());
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while(resultSet.next())
-            {
-                return true;
-            }
-
-        } catch (SQLException e)
-        {
+    public void addEvent(Event event){
+        String sql = "INSERT INTO event (event_name, event_description, event_start, event_address, max_capacity, price_id) VALUES (?, ?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, event.getName());
+            statement.setString(2, event.getDescription());
+            statement.setDate(3, event.getStartDato());
+            statement.setString(4, event.getAddress());
+            statement.setInt(5, event.getCapacity());
+            statement.setInt(6, event.getPrice_id());
+            int rows = statement.executeUpdate();
+            System.out.println("Rows added: " + rows);
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
     }
+
+    public List<Event> readAllEvents(){
+        String sql = "SELECT * FROM event";
+        List<Event> eventList = new ArrayList<>();
+        try {
+            //connection = DriverManager.getConnection(DB_URL,DB_USER, DB_PW);
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                int id = resultSet.getInt(1);
+                Date date = resultSet.getDate(2);
+                String description = resultSet.getString(3);
+                String name = resultSet.getString(4);
+                String elements = resultSet.getString(5);
+                String mealType = resultSet.getString(6);
+                list.add(new Meal(id,date, description, name, elements, mealType));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public Meal readMeal(int id)
+    {
+        return null;
+    }
+
+
 }
 
 
