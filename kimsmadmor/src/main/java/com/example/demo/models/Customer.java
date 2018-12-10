@@ -1,0 +1,128 @@
+package com.example.demo.models;
+
+public class Customer
+{
+    private int id;
+    private String firstname;
+    private String lastname;
+    private String adress;
+    private String email;
+    private int phonenumber;
+    private int quantityAdults;
+    private int quantityChildren;
+    private int paymentInfo;
+    private boolean active;
+
+    public Customer()
+    {
+
+    }
+
+    public Customer(int id, String firstname, String lastname, String adress, int phonenumber, String email, int quantityAdults, int quantityChildren, int paymentInfo, boolean active)
+    {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.adress = adress;
+        this.email = email;
+        this.phonenumber = phonenumber;
+        this.quantityAdults = quantityAdults;
+        this.quantityChildren = quantityChildren;
+        this.paymentInfo = paymentInfo;
+        this.active = active;
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+
+    public String getFirstname()
+    {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname)
+    {
+        this.firstname = firstname;
+    }
+
+    public String getLastname()
+    {
+        return lastname;
+    }
+
+    public void setLastname(String lastname)
+    {
+        this.lastname = lastname;
+    }
+
+    public String getAdress()
+    {
+        return adress;
+    }
+
+    public void setAdress(String adress)
+    {
+        this.adress = adress;
+    }
+
+    public String getEmail()
+    {
+        return email;
+    }
+
+    public void setEmail(String email)
+    {
+        this.email = email;
+    }
+
+    public int getPhonenumber()
+    {
+        return phonenumber;
+    }
+
+    public void setPhonenumber(int phonenumber)
+    {
+        this.phonenumber = phonenumber;
+    }
+
+    public int getQuantityAdults()
+    {
+        return quantityAdults;
+    }
+
+    public void setQuantityAdults(int quantityAdults)
+    {
+        this.quantityAdults = quantityAdults;
+    }
+
+    public int getQuantityChildren()
+    {
+        return quantityChildren;
+    }
+
+    public void setQuantityChildren(int quantityChildren)
+    {
+        this.quantityChildren = quantityChildren;
+    }
+
+    public int getPaymentInfo()
+    {
+        return paymentInfo;
+    }
+
+    public void setPaymentInfo(int paymentInfo)
+    {
+        this.paymentInfo = paymentInfo;
+    }
+
+    public boolean getActive(){return active;}
+
+    public void setActive(boolean active){this.active = active;}
+}

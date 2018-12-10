@@ -1,0 +1,97 @@
+package com.example.demo.controller;
+
+import com.example.demo.models.DBManager;
+import com.example.demo.models.Customer;
+import com.example.demo.models.Meal;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Controller
+public class HomeController {
+
+    private List<Customer> customers = new ArrayList<>();
+    private static final String customerStr = "customers";
+    private static final String mealStr = "meals";
+    private DBManager dbManager = new DBManager();
+    private List<Meal> meals = new ArrayList<>();
+
+
+    @RequestMapping("/")
+    public String getIndex(Model model)
+    {
+        return "index"; //
+    }
+
+    @RequestMapping(value = "/", params = "list")
+    public String getList(Model model){
+        customers = dbManager.readAllPersons();
+        model.addAttribute(personsStr, persons);
+        return "list";
+    }
+
+    @RequestMapping(value = "/addmeal", method = RequestMethod.GET)
+    public String getAddPerson()
+    {
+        return "addmeal"; // henviser til addperson.html
+    }
+
+    @RequestMapping(value = "/addmeal", method = RequestMethod.POST)
+    public String addMeal(Model model, Meal meal){
+        dbManager.addMeal(meal);
+        System.out.println("modtaget Person " + meal.getName());
+        meals = dbManager.readAllMeals();
+        model.addAttribute(mealStr, meals);
+        return "list"; // henviser til list.html
+    }
+
+    @RequestMapping(value = "/updateperson", params = "deleteperson", method = RequestMethod.POST)
+    public String deletePerson(Model model, Person person)
+    {
+        System.out.println("hertil");
+        //1. kald på DBManager om at slette denne person
+        dbManager.deletePerson(person);
+        // 2. kald på DBManager om at returnere alle rækker, efter at have slettet
+        persons = dbManager.readAllPersons();
+        model.addAttribute(personsStr, persons);
+        return "list";
+    }
+
+    @RequestMapping(value = "/updateperson", method = RequestMethod.GET)
+    public String getUpdatePerson(Model model, Person person)
+    {
+        persons = dbManager.readAllPersons();
+        model.addAttribute(personsStr, persons);
+        return "updateperson"; //html
+    }
+
+    @RequestMapping(value = "/updateperson",  method = RequestMethod.POST)
+    public String updatePerson(Model model, Person person){
+        dbManager.updatePerson(person);
+        System.out.println("Person " + person.getUname() + " modtaget");
+        persons = dbManager.readAllPersons();
+        model.addAttribute(personsStr, persons);
+        return "list";
+    }
+
+    @RequestMapping(value = "/", params = "login")
+    public String login(Model model, Person person)
+    {
+        if(dbManager.login(person))
+        {
+            persons = dbManager.readAllPersons();
+        }
+        else
+        {
+            persons = new ArrayList<>();
+        }
+        model.addAttribute(personsStr, persons);
+        return "list";
+    }
+
+
+}
