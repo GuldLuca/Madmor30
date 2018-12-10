@@ -325,6 +325,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Spring Boot.DemoApplication" />
+      <item itemvalue="Application.DBManager" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.DBManager" />

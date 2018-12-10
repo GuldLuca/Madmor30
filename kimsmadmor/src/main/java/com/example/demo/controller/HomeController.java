@@ -6,8 +6,10 @@ import com.example.demo.models.Event;
 import com.example.demo.models.Meal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,13 +80,10 @@ public class HomeController {
         return "mealMenu";
     }
 
-    @RequestMapping(value="/mealDetails")
-    public String mealDetails(Model model)
-    {
-        meals = dbManager.readAllMeals();
-        model.addAttribute(mealStr, meals);
-        return "mealDetails";
-
+    @GetMapping("/mealDetails")
+    public String details(@RequestParam(value = "id", defaultValue = "1") int id, Model model) {
+        model.addAttribute("meal", meals.get(id - 1));
+        return "details";
     }
 
     @RequestMapping(value = "/addevent", method = RequestMethod.GET)
