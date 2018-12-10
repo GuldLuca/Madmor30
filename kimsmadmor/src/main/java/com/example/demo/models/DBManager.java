@@ -76,7 +76,7 @@ public class DBManager {
 
 
 
-    public void updatePerson(Meal meal)
+    public void updateMeal(Meal meal)
     {
         String sql = "UPDATE meal SET meal_date = ? , meal_description = ?, meal_name = ?, meal_elements = ?, meal_type_id = ? WHERE id = ?";
         try {
@@ -94,7 +94,7 @@ public class DBManager {
         }
     }
 
-    public void deletePerson(Meal meal){
+    public void deleteMeal(Meal meal){
         String sql = "DELETE FROM meal WHERE id = ?";
         try
         {

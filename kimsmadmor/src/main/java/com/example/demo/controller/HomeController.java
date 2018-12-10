@@ -29,8 +29,8 @@ public class HomeController {
 
     @RequestMapping(value = "/", params = "list")
     public String getList(Model model){
-        customers = dbManager.readAllPersons();
-        model.addAttribute(personsStr, persons);
+        meals = dbManager.readAllMeals();
+        model.addAttribute(mealStr, meals);
         return "list";
     }
 
@@ -49,32 +49,29 @@ public class HomeController {
         return "list"; // henviser til list.html
     }
 
-    @RequestMapping(value = "/updateperson", params = "deleteperson", method = RequestMethod.POST)
-    public String deletePerson(Model model, Person person)
+    @RequestMapping(value = "/updatemeal", params = "deletemeal", method = RequestMethod.POST)
+    public String deletePerson(Model model, Meal meal)
     {
-        System.out.println("hertil");
-        //1. kald på DBManager om at slette denne person
-        dbManager.deletePerson(person);
-        // 2. kald på DBManager om at returnere alle rækker, efter at have slettet
-        persons = dbManager.readAllPersons();
-        model.addAttribute(personsStr, persons);
+        dbManager.deleteMeal(meal);
+        meals = dbManager.readAllMeals();
+        model.addAttribute(mealStr, meals);
         return "list";
     }
 
-    @RequestMapping(value = "/updateperson", method = RequestMethod.GET)
-    public String getUpdatePerson(Model model, Person person)
+    @RequestMapping(value = "/updatemeal", method = RequestMethod.GET)
+    public String getUpdatePerson(Model model, Meal meal)
     {
-        persons = dbManager.readAllPersons();
-        model.addAttribute(personsStr, persons);
-        return "updateperson"; //html
+        meals = dbManager.readAllMeals();
+        model.addAttribute(mealStr, meals);
+        return "updatemeal"; //html
     }
 
-    @RequestMapping(value = "/updateperson",  method = RequestMethod.POST)
-    public String updatePerson(Model model, Person person){
-        dbManager.updatePerson(person);
-        System.out.println("Person " + person.getUname() + " modtaget");
-        persons = dbManager.readAllPersons();
-        model.addAttribute(personsStr, persons);
+    @RequestMapping(value = "/updatemeal",  method = RequestMethod.POST)
+    public String updatePerson(Model model, Meal meal){
+        dbManager.updateMeal(meal);
+        System.out.println("Person " + meal.getName() + " modtaget");
+        meals = dbManager.readAllMeals();
+        model.addAttribute(mealStr, meals);
         return "list";
     }
 
