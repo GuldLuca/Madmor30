@@ -11,6 +11,7 @@ public class Meal
     private String name;
     private String elements;
 
+
     public Meal(int id, Date date, String description, String name, String elements)
     {
         this.id = id;
