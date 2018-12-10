@@ -30,7 +30,7 @@ public class HomeController {
         return "index"; //
     }
 
-    @RequestMapping(value = "/", params="mealMenu")
+    @RequestMapping(value = "/mealMenu")
     public String getMealList(Model model){
         meals = dbManager.readAllMeals();
         model.addAttribute(mealStr, meals);
@@ -76,6 +76,15 @@ public class HomeController {
         meals = dbManager.readAllMeals();
         model.addAttribute(mealStr, meals);
         return "mealMenu";
+    }
+
+    @RequestMapping(value="/mealDetails")
+    public String mealDetails(Model model)
+    {
+        meals = dbManager.readAllMeals();
+        model.addAttribute(mealStr, meals);
+        return "mealDetails";
+
     }
 
     @RequestMapping(value = "/addevent", method = RequestMethod.GET)
