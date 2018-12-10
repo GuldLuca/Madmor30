@@ -16,12 +16,11 @@ public class DBManager {
     {
         DBManager db = new DBManager();
         db.dbInit();
-        String str="2015-03-31";
+        /*String str="2015-03-31";
         Date date=Date.valueOf(str);//converting string into sql date
         Meal meal = new Meal(3, date,"ålålålål", "Noget med Karry", "Karry, gulerødder", "2");
-        db.addMeal(meal);
-        Meal mew = new Meal(1);
-        db.deleteMeal(mew);
+        db.addMeal(meal);*/
+        System.out.println(db.readAllMeals());
 
     }
 

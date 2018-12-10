@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<h1>  Måltids menu</h1>
+<h1>  Måltidsmenu</h1>
 
 <p>
     <a href="/addmeal">
@@ -18,28 +18,27 @@
         <th>Name</th>
         <th>Type</th>
         <th>Date</th>
-        <th></th>
     </tr>
+    </thead>
     <tbody>
     <tr th:each="meal: ${meals}">
-        <td th:text="${meal.name}"/>
-        <td th:text="${meal.type}"/>
-        <td th:text="${meal.date}"/>
+        <td th:text="${meal.name}"> </td>
+        <td th:text="${meal.mealType}"> </td>
+        <td th:text="${meal.date}"> </td>
 
         <td>
-            <a th:href="@{'/details?id='+${meal.id}}">
-                <button class="btn-details btn">details</button>
+            <a th:href="@{'/mealDetails?id='+${meal.id}}">
+                <button>Detaljer</button>
             </a>
-            <a th:href="@{'/edit?id='+${meal.id}}">
-                <button class="btn-ed btn">edit</button>
+            <a th:href="@{'/mealEdit?id='+${meal.id}}">
+                <button>Opdater</button>
             </a>
-            <a th:href="@{'/delete?id='+${meal.id}}">
-                <button class="btn-del btn">delete</button>
+            <a th:href="@{'/mealDelete?id='+${meal.id}}">
+                <button>Slet</button>
             </a>
         </td>
     </tr>
     </tbody>
-    </thead>
 </table>
 </body>
 </html>

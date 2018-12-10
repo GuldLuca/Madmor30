@@ -30,11 +30,11 @@ public class HomeController {
         return "index"; //
     }
 
-    @RequestMapping(value = "/", params = "list")
-    public String getList(Model model){
+    @RequestMapping(value = "/", params="mealMenu")
+    public String getMealList(Model model){
         meals = dbManager.readAllMeals();
         model.addAttribute(mealStr, meals);
-        return "list";
+        return "mealMenu";
     }
 
     @RequestMapping(value = "/addmeal", method = RequestMethod.GET)
@@ -49,33 +49,33 @@ public class HomeController {
         System.out.println("modtaget Person " + meal.getName());
         meals = dbManager.readAllMeals();
         model.addAttribute(mealStr, meals);
-        return "list"; // henviser til list.html
+        return "mealMenu"; // henviser til list.html
     }
 
-    @RequestMapping(value = "/updatemeal", params = "deletemeal", method = RequestMethod.POST)
+    @RequestMapping(value = "/mealDelete", method = RequestMethod.POST)
     public String deleteMeal(Model model, Meal meal)
     {
         dbManager.deleteMeal(meal);
         meals = dbManager.readAllMeals();
         model.addAttribute(mealStr, meals);
-        return "list";
+        return "mealMenu";
     }
 
-    @RequestMapping(value = "/updatemeal", method = RequestMethod.GET)
+    @RequestMapping(value = "/mealUpdate", method = RequestMethod.GET)
     public String getUpdateMeal(Model model, Meal meal)
     {
         meals = dbManager.readAllMeals();
         model.addAttribute(mealStr, meals);
-        return "updatemeal"; //html
+        return "mealUpdate"; //html
     }
 
-    @RequestMapping(value = "/updatemeal",  method = RequestMethod.POST)
+    @RequestMapping(value = "/mealUpdate",  method = RequestMethod.POST)
     public String updateMeal(Model model, Meal meal){
         dbManager.updateMeal(meal);
         System.out.println("Person " + meal.getName() + " modtaget");
         meals = dbManager.readAllMeals();
         model.addAttribute(mealStr, meals);
-        return "list";
+        return "mealMenu";
     }
 
     @RequestMapping(value = "/addevent", method = RequestMethod.GET)

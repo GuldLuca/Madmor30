@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Opdater måltids informationer</h1>
+<form method="Post" th:action="@{/edit}">
+    <label>Måltids ID:</label>
+    <input id="mealIdInput" type="text" th:field="${meal.id}" readonly="true"/>
+    <label>Måltids navn:</label>
+    <input type="text" th:field="${meal.name}" value="${meal.name}" required="true"/>
+    <label>Måltids kategori:</label>
+    <input type="text" th:field="${meal.type}" value="${meal.type}" required="true"/>
+    <label>Beskrivelse:</label>
+    <input type="text" th:field="${meal.description}" value="${meal.description}" required="true"/>
+    <label>Dato:</label>
+    <input type="date" th:field="${meal.date}" value="${meal.date}" required="true"/>
+    <label>Elementer:</label>
+    <input type="text" th:field="${meal.elements}" value="${meal.elements}" required="true"/>
+    <input type="submit" value="Opdater"/>
+</form>
+<p>
+    <a href="/mealMenu">
+        <button> Måltids menu</button>
+    </a>
+</p>
+</body>
+</html>
