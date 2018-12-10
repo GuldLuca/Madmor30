@@ -10,20 +10,32 @@ public class Meal
     private String description;
     private String name;
     private String elements;
+    private String mealType;
 
 
-    public Meal(int id, Date date, String description, String name, String elements)
+    public Meal(int id, Date date, String description, String name, String elements, String mealType)
     {
         this.id = id;
         this.date = date;
         this.description = description;
         this.name = name;
         this.elements = elements;
+        this.mealType = mealType;
     }
 
     public Meal()
     {
 
+    }
+
+    public String getMealType()
+    {
+        return mealType;
+    }
+
+    public void setMealType(String mealType)
+    {
+        this.mealType = mealType;
     }
 
     public int getId()

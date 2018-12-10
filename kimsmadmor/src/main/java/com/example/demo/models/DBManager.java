@@ -31,13 +31,14 @@ public class DBManager {
     }
 
     public void addMeal(Meal meal){
-        String sql = "INSERT INTO meal (meal_date, meal_description, meal_name, meal_elements) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO meal (meal_date, meal_description, meal_name, meal_elements, meal_type_id) VALUES (?, ?, ?, ?, ?)";
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setDate(1, meal.getDate());
             statement.setString(2, meal.getDescription());
             statement.setString(3, meal.getName());
             statement.setString(4, meal.getElements());
+            statement.setString(5, meal.getMealType());
             int rows = statement.executeUpdate();
             System.out.println("Rows added: " + rows);
         } catch (SQLException e) {
@@ -59,7 +60,8 @@ public class DBManager {
                 String description = resultSet.getString(3);
                 String name = resultSet.getString(4);
                 String elements = resultSet.getString(5);
-                list.add(new Meal(id,date, description, name, elements));
+                String mealType = resultSet.getString(6);
+                list.add(new Meal(id,date, description, name, elements, mealType));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -74,28 +76,30 @@ public class DBManager {
 
 
 
-    public void updatePerson(Person person)
+    public void updatePerson(Meal meal)
     {
-        String sql = "UPDATE person SET uname = ? , password = ? WHERE id = ?";
+        String sql = "UPDATE meal SET meal_date = ? , meal_description = ?, meal_name = ?, meal_elements = ?, meal_type_id = ? WHERE id = ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, person.getUname());
-            preparedStatement.setString(2,person.getPassword());
-            preparedStatement.setInt(3, person.getId());
+            preparedStatement.setDate(1, meal.getDate());
+            preparedStatement.setString(2,meal.getDescription());
+            preparedStatement.setString(3, meal.getName());
+            preparedStatement.setString(3, meal.getElements());
+            preparedStatement.setString(3, meal.getMealType());
             preparedStatement.executeUpdate();
-            System.out.println(person.getUname() + " opdateret");
+            System.out.println(meal.getName() + " opdateret");
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void deletePerson(Person person){
-        String sql = "DELETE FROM person WHERE id = ?";
+    public void deletePerson(Meal meal){
+        String sql = "DELETE FROM meal WHERE id = ?";
         try
         {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, person.getId());
+            preparedStatement.setInt(1, meal.getId());
             int rowsAffected = preparedStatement.executeUpdate();
             System.out.println("Slettet " + rowsAffected + " række(r).");
         }
