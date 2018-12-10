@@ -1,8 +1,8 @@
 package com.example.demo.models;
 
 import java.sql.*;
-import java.sql.Date;
 import java.util.*;
+import java.sql.Date;
 
 public class DBManager {
 
@@ -14,6 +14,14 @@ public class DBManager {
 
     public static void main(String[] args)
     {
+        DBManager db = new DBManager();
+        db.dbInit();
+        String str="2015-03-31";
+        Date date=Date.valueOf(str);//converting string into sql date
+        Meal meal = new Meal(3, date,"ålålålål", "Noget med Karry", "Karry, gulerødder", "2");
+        db.addMeal(meal);
+        Meal mew = new Meal(1);
+        db.deleteMeal(mew);
 
     }
 
@@ -81,7 +89,7 @@ public class DBManager {
         String sql = "UPDATE meal SET meal_date = ? , meal_description = ?, meal_name = ?, meal_elements = ?, meal_type_id = ? WHERE id = ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setDate(1, meal.getDate());
+            preparedStatement.setDate(1, (java.sql.Date) meal.getDate());
             preparedStatement.setString(2,meal.getDescription());
             preparedStatement.setString(3, meal.getName());
             preparedStatement.setString(3, meal.getElements());
@@ -140,7 +148,7 @@ public class DBManager {
                 String address = resultSet.getString(5);
                 int capacity = resultSet.getInt(6);
                 int price_id = resultSet.getInt(7);
-                eventList.add(new Event(id,name, description, startDato, address, capacity, price_id));
+                eventList.add(new Event(id,name, description, (java.sql.Date) startDato, address, capacity, price_id));
             }
         } catch (SQLException e) {
             e.printStackTrace();

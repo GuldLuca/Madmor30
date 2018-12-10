@@ -1,11 +1,14 @@
 package com.example.demo.models;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.sql.Date;
 
 public class Meal
 {
     private int id;
+    @DateTimeFormat (pattern = "YYYY-MM-DD")
     private Date date;
     private String description;
     private String name;
@@ -26,6 +29,11 @@ public class Meal
     public Meal()
     {
 
+    }
+
+    public Meal(int id)
+    {
+        this.id = id;
     }
 
     public String getMealType()
@@ -88,7 +96,4 @@ public class Meal
         this.elements = elements;
     }
 
-    public void Hej(){
-        System.out.println("Hej");
-    }
 }

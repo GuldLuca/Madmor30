@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.models.DBManager;
 import com.example.demo.models.Customer;
+import com.example.demo.models.Event;
 import com.example.demo.models.Meal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,11 +15,13 @@ import java.util.List;
 @Controller
 public class HomeController {
 
+    private DBManager dbManager = new DBManager();
     private List<Customer> customers = new ArrayList<>();
     private static final String customerStr = "customers";
-    private static final String mealStr = "meals";
-    private DBManager dbManager = new DBManager();
     private List<Meal> meals = new ArrayList<>();
+    private static final String mealStr = "meals";
+    private List<Event> events = new ArrayList<>();
+    private static final String eventStr ="events";
 
 
     @RequestMapping("/")
@@ -35,7 +38,7 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/addmeal", method = RequestMethod.GET)
-    public String getAddPerson()
+    public String getAddMeal()
     {
         return "addmeal"; // henviser til addperson.html
     }
@@ -50,7 +53,7 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/updatemeal", params = "deletemeal", method = RequestMethod.POST)
-    public String deletePerson(Model model, Meal meal)
+    public String deleteMeal(Model model, Meal meal)
     {
         dbManager.deleteMeal(meal);
         meals = dbManager.readAllMeals();
@@ -59,7 +62,7 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/updatemeal", method = RequestMethod.GET)
-    public String getUpdatePerson(Model model, Meal meal)
+    public String getUpdateMeal(Model model, Meal meal)
     {
         meals = dbManager.readAllMeals();
         model.addAttribute(mealStr, meals);
@@ -67,11 +70,43 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/updatemeal",  method = RequestMethod.POST)
-    public String updatePerson(Model model, Meal meal){
+    public String updateMeal(Model model, Meal meal){
         dbManager.updateMeal(meal);
         System.out.println("Person " + meal.getName() + " modtaget");
         meals = dbManager.readAllMeals();
         model.addAttribute(mealStr, meals);
+        return "list";
+    }
+
+    @RequestMapping(value = "/addevent", method = RequestMethod.GET)
+    public String getAddEvent()
+    {
+        return "addevent"; // henviser til addperson.html
+    }
+
+    @RequestMapping(value = "/addevent", method = RequestMethod.POST)
+    public String addEvent(Model model, Event event){
+        dbManager.addEvent(event);
+        System.out.println("modtaget Event " + event.getName());
+        events = dbManager.readAllEvents();
+        model.addAttribute(eventStr, events);
+        return "list"; // henviser til list.html
+    }
+
+    @RequestMapping(value = "/updateevent", method = RequestMethod.GET)
+    public String getUpdateEvent(Model model, Event event)
+    {
+        events = dbManager.readAllEvents();
+        model.addAttribute(eventStr, events);
+        return "updateevent"; //html
+    }
+
+    @RequestMapping(value = "/updateevent",  method = RequestMethod.POST)
+    public String updateEvent(Model model, Event event){
+        dbManager.updateEvent(event);
+        System.out.println("Event " + event.getName() + " modtaget");
+        events = dbManager.readAllEvents();
+        model.addAttribute(eventStr, events);
         return "list";
     }
 
