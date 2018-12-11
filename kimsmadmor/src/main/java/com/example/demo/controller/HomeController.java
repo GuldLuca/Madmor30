@@ -50,8 +50,15 @@ public class HomeController {
         model.addAttribute(mealStr, meals);
         return "mealMenu"; // henviser til list.html
     }
+    @RequestMapping(value = "/mealDelete", method = RequestMethod.GET)
+    public String getMealDelete(Model model, Meal meal)
+    {
+        meals = dbManager.readAllMeals();
+        model.addAttribute(mealStr, meal);
+        return "mealDelete"; //html
+    }
 
-    @RequestMapping(value = "/", params="mealUpdate", method = RequestMethod.GET)
+    @RequestMapping(value = "/mealDelete", method = RequestMethod.POST)
     public String mealDelete(Model model, Meal meal)
     {
         dbManager.deleteMeal(meal);
@@ -59,36 +66,22 @@ public class HomeController {
         model.addAttribute(mealStr, meals);
         return "mealMenu";
     }
-    @GetMapping("/mealUpdate")
-    public String mealUpdate(@RequestParam(value = "id", defaultValue = "1") int id, Model model) {
-        model.addAttribute("meal", meals.get(id - 1));
-        return "mealUpdate";
-    }
-
-    @PostMapping("/mealUpdate")
-    public String mealUpdate(@ModelAttribute Meal meal) {
-        int index = meal.getId();
-        meal.setId(index);
-        meals.set(index - 1, meal);
-        return "redirect:/";
-    }
-
-   /* @RequestMapping(value= "/mealUpdate", method = RequestMethod.GET)
+    @RequestMapping(value = "/mealUpdate", method = RequestMethod.GET)
     public String getUpdateMeal(Model model, Meal meal)
     {
         meals = dbManager.readAllMeals();
-        model.addAttribute(mealStr, meals);
+        model.addAttribute(mealStr, meal);
         return "mealUpdate"; //html
     }
 
-    @RequestMapping(value= "/mealUpdate", method = RequestMethod.POST)
+    @RequestMapping(value = "/mealUpdate",  method = RequestMethod.POST)
     public String updateMeal(Model model, Meal meal){
         dbManager.updateMeal(meal);
-        System.out.println("Person " + meal.getName() + " modtaget");
+        System.out.println("Meal " + meal.getName() + " modtaget");
         meals = dbManager.readAllMeals();
         model.addAttribute(mealStr, meals);
         return "mealMenu";
-    }*/
+    }
 
     @RequestMapping("/mealDetails")
     public String mealDetails(@RequestParam(value = "id", defaultValue = "1") int id, Model model) {

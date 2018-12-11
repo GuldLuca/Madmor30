@@ -86,14 +86,15 @@ public class DBManager {
 
     public void updateMeal(Meal meal)
     {
-        String sql = "UPDATE meal SET meal_date = ? , meal_description = ?, meal_name = ?, meal_elements = ?, meal_type_id = ? WHERE id = ?";
+        String sql = "UPDATE meal SET meal_date = ? , meal_description = ?, meal_name = ?, meal_elements = ?, meal_type_id = ? WHERE meal_id = ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setObject(1, meal.getDate());
             preparedStatement.setString(2,meal.getDescription());
             preparedStatement.setString(3, meal.getName());
-            preparedStatement.setString(3, meal.getElements());
-            preparedStatement.setString(3, meal.getMealType());
+            preparedStatement.setString(4, meal.getElements());
+            preparedStatement.setString(5, meal.getMealType());
+            preparedStatement.setInt(6, meal.getId());
             preparedStatement.executeUpdate();
             System.out.println(meal.getName() + " opdateret");
 
@@ -103,7 +104,7 @@ public class DBManager {
     }
 
     public void deleteMeal(Meal meal){
-        String sql = "DELETE FROM meal WHERE id = ?";
+        String sql = "DELETE FROM meal WHERE meal_id = ?";
         try
         {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);

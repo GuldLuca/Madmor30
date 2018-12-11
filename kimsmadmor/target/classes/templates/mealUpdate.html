@@ -7,11 +7,9 @@
 <body>
 <h1>Opdater måltids informationer</h1>
 <form action="/mealUpdate" th:each="meal: ${meal}" method= "post">
-    <label>Måltids ID:</label>
-    <input id="mealIdInput" type="text" th:field="${meal.id}" readonly="true"/>
-    <label>Måltids navn:</label>
+    <label>Navn:</label>
     <input type="text" th:field="${meal.name}" value="${meal.name}" required="true"/>
-    <label>Måltids kategori:</label>
+    <label>Kategori:</label>
     <input type="text" th:field="${meal.mealType}" value="${meal.type}" required="true"/>
     <label>Beskrivelse:</label>
     <input type="text" th:field="${meal.description}" value="${meal.description}" required="true"/>
