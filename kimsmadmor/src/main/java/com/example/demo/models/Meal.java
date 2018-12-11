@@ -3,20 +3,20 @@ package com.example.demo.models;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public class Meal
 {
     private int id;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date date;
+    private LocalDate date;
     private String description;
     private String name;
     private String elements;
     private String mealType;
 
 
-    public Meal(int id, Date date, String description, String name, String elements, String mealType)
+    public Meal(int id, LocalDate date, String description, String name, String elements, String mealType)
     {
         this.id = id;
         this.date = date;
@@ -56,12 +56,12 @@ public class Meal
         this.id = id;
     }
 
-    public Date getDate()
+    public LocalDate getDate()
     {
         return date;
     }
 
-    public void setDate(Date date)
+    public void setDate(LocalDate date)
     {
         this.date = date;
     }

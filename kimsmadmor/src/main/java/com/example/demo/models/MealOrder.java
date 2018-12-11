@@ -5,7 +5,6 @@ public class MealOrder {
     private Meal meal;
     private int numberOfAdults;
     private int numberOfChildren;
-    private int lukRøven;
 
     public MealOrder() {
 
