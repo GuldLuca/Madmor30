@@ -8,7 +8,6 @@
 <h2>Er du sikker på at du vil slette dette måltid?</h2>
 
 <form action="/mealDelete" th:each="meal: ${meals}" method="post">
-    <p th:text="${meals.name}"></p>
     <input type="hidden" th:field="${meal.id}"/>
     <input type="submit" value="Ja"/>
     <a href="/mealMenu"> <button>Nej </button> </a>

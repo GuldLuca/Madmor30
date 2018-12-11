@@ -51,8 +51,8 @@ public class HomeController {
         return "mealMenu"; // henviser til list.html
     }
 
-    @RequestMapping(value = "/mealDelete", method = RequestMethod.POST)
-    public String deleteMeal(Model model, Meal meal)
+    @RequestMapping(value = "/mealDelete", method = RequestMethod.GET)
+    public String mealDelete(Model model, Meal meal)
     {
         dbManager.deleteMeal(meal);
         meals = dbManager.readAllMeals();
