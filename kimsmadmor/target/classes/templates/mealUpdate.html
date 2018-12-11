@@ -6,13 +6,13 @@
 </head>
 <body>
 <h1>Opdater måltids informationer</h1>
-<form method="Post" th:action="@{/edit}">
+<form action="/mealUpdate" th:each="meal: ${meal}" method= "post">
     <label>Måltids ID:</label>
     <input id="mealIdInput" type="text" th:field="${meal.id}" readonly="true"/>
     <label>Måltids navn:</label>
     <input type="text" th:field="${meal.name}" value="${meal.name}" required="true"/>
     <label>Måltids kategori:</label>
-    <input type="text" th:field="${meal.type}" value="${meal.type}" required="true"/>
+    <input type="text" th:field="${meal.mealType}" value="${meal.type}" required="true"/>
     <label>Beskrivelse:</label>
     <input type="text" th:field="${meal.description}" value="${meal.description}" required="true"/>
     <label>Dato:</label>
@@ -21,6 +21,7 @@
     <input type="text" th:field="${meal.elements}" value="${meal.elements}" required="true"/>
     <input type="submit" value="Opdater"/>
 </form>
+
 <p>
     <a href="/mealMenu">
         <button> Måltids menu</button>

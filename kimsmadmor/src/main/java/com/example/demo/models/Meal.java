@@ -8,7 +8,7 @@ import java.sql.Date;
 public class Meal
 {
     private int id;
-    @DateTimeFormat (pattern = "YYYY-MM-DD")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
     private String description;
     private String name;

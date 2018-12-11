@@ -6,10 +6,7 @@ import com.example.demo.models.Event;
 import com.example.demo.models.Meal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,8 +59,21 @@ public class HomeController {
         model.addAttribute(mealStr, meals);
         return "mealMenu";
     }
+    @GetMapping("/mealUpdate")
+    public String mealUpdate(@RequestParam(value = "id", defaultValue = "1") int id, Model model) {
+        model.addAttribute("meal", meals.get(id - 1));
+        return "mealUpdate";
+    }
 
-    @RequestMapping(value = "/mealUpdate", method = RequestMethod.GET)
+    @PostMapping("/mealUpdate")
+    public String mealUpdate(@ModelAttribute Meal meal) {
+        int index = meal.getId();
+        meal.setId(index);
+        meals.set(index - 1, meal);
+        return "redirect:/";
+    }
+
+   /* @RequestMapping(value= "/mealUpdate", method = RequestMethod.GET)
     public String getUpdateMeal(Model model, Meal meal)
     {
         meals = dbManager.readAllMeals();
@@ -71,14 +81,14 @@ public class HomeController {
         return "mealUpdate"; //html
     }
 
-    @RequestMapping(value = "/mealUpdate",  method = RequestMethod.POST)
+    @RequestMapping(value= "/mealUpdate", method = RequestMethod.POST)
     public String updateMeal(Model model, Meal meal){
         dbManager.updateMeal(meal);
         System.out.println("Person " + meal.getName() + " modtaget");
         meals = dbManager.readAllMeals();
         model.addAttribute(mealStr, meals);
         return "mealMenu";
-    }
+    }*/
 
     @RequestMapping("/mealDetails")
     public String mealDetails(@RequestParam(value = "id", defaultValue = "1") int id, Model model) {
