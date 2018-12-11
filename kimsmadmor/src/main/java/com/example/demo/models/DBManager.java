@@ -88,7 +88,7 @@ public class DBManager {
         String sql = "UPDATE meal SET meal_date = ? , meal_description = ?, meal_name = ?, meal_elements = ?, meal_type_id = ? WHERE id = ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setDate(1, (java.sql.Date) meal.getDate());
+            preparedStatement.setObject(1, meal.getDate());
             preparedStatement.setString(2,meal.getDescription());
             preparedStatement.setString(3, meal.getName());
             preparedStatement.setString(3, meal.getElements());
