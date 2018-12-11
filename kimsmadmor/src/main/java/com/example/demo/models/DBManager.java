@@ -1,6 +1,7 @@
 package com.example.demo.models;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.*;
 import java.sql.Date;
 
@@ -41,7 +42,7 @@ public class DBManager {
         String sql = "INSERT INTO meal (meal_date, meal_description, meal_name, meal_elements, meal_type_id) VALUES (?, ?, ?, ?, ?)";
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setDate(1, meal.getDate());
+            statement.setObject(1, meal.getDate());
             statement.setString(2, meal.getDescription());
             statement.setString(3, meal.getName());
             statement.setString(4, meal.getElements());
@@ -63,7 +64,7 @@ public class DBManager {
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()){
                 int id = resultSet.getInt(1);
-                Date date = resultSet.getDate(2);
+                LocalDate date = resultSet.getObject(2, LocalDate.class);
                 String description = resultSet.getString(3);
                 String name = resultSet.getString(4);
                 String elements = resultSet.getString(5);
