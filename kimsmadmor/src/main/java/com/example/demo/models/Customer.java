@@ -5,6 +5,7 @@ public class Customer
     private int id;
     private String firstname;
     private String lastname;
+    private String fullName;
     private String adress;
     private String email;
     private int phonenumber;
@@ -23,6 +24,7 @@ public class Customer
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
+        this.fullName= firstname + " " +lastname;
         this.adress = adress;
         this.email = email;
         this.phonenumber = phonenumber;
@@ -47,9 +49,9 @@ public class Customer
         return firstname;
     }
 
-    public void setFirstname(String firstname)
-    {
+    public void setFirstname(String firstname) {
         this.firstname = firstname;
+        this.fullName = this.firstname+ " "+ this.lastname;
     }
 
     public String getLastname()
@@ -57,9 +59,9 @@ public class Customer
         return lastname;
     }
 
-    public void setLastname(String lastname)
-    {
+    public void setLastname(String lastname) {
         this.lastname = lastname;
+        this.fullName = this.firstname+ " "+ this.lastname;
     }
 
     public String getAdress()
@@ -125,4 +127,9 @@ public class Customer
     {
         this.password = password;
     }
+
+    public String getFullName(){
+        return fullName;
+    }
+
 }

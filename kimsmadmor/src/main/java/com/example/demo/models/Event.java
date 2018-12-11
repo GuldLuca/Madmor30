@@ -1,18 +1,22 @@
 package com.example.demo.models;
 
-import java.sql.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
 
 public class Event
 {
     private int id;
     private String name;
     private String description;
-    private Date startDato;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate startDato;
     private String address;
     private int capacity;
     private int price_id;
 
-    public Event(int id, String name, String description, Date startDato, String address, int capacity, int price_id)
+    public Event(int id, String name, String description, LocalDate startDato, String address, int capacity, int price_id)
     {
         this.id = id;
         this.name = name;
@@ -58,12 +62,12 @@ public class Event
         this.description = description;
     }
 
-    public Date getStartDato()
+    public LocalDate getStartDato()
     {
         return startDato;
     }
 
-    public void setStartDato(Date startDato)
+    public void setStartDato(LocalDate startDato)
     {
         this.startDato = startDato;
     }

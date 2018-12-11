@@ -41,4 +41,20 @@ public class MealOrder {
     public void setNumberOfChildren(int numberOfChildren) {
         this.numberOfChildren = numberOfChildren;
     }
+
+    public String getCustomerName(){
+        return this.customer.getFirstname() +" " + this.customer.getLastname();
+    }
+    public String getCustomerAdresse(){
+        return this.customer.getAdress();
+    }
+    public String getMealName(){
+        return  this.meal.getName();
+    }
+    public String getMealElements(){
+        return this.meal.getElements();
+    }
+    public  String getDateString(){
+        return this.meal.getDate().toString();
+    }
 }

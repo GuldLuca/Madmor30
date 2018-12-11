@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1> Måltids Kasse Menu</h1>
+
+<p>
+    <a href="/addevent">
+        <button> Vælg uge (ikke implementeret)</button>
+    </a>
+</p>
+<table>
+    <thead>
+    <tr>
+        <th>Kunde navn</th>
+        <th> Kunde adresse </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="customer: ${customers}">
+        <td th:text="${customer.fullName}"> </td>
+        <td th:text="${customer.adress}"> </td>
+
+
+        <td>
+            <a th:href="@{'/mealOrderDetails?id='+${customer.id}}">
+                <button>Bestillings indhold</button>
+            </a>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="/index">
+    <button>Hovedmenu</button>
+</a>
+</body>
+</html>
