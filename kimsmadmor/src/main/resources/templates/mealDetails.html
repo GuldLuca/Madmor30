@@ -5,16 +5,20 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Måltids oversigt</h1>
-<p th:text="'Navn: ' + ${meal.name}"/>
-<p th:text="'Type: ' + ${meal.mealType}"/>
-<p th:text="'Beskrivelse: ' + ${meal.description}"/>
-<p th:text="'Leverings dato: ' + ${meal.date}"/>
-<p th:text="'Elementer: ' + ${meal.elements}"/>
+<h1>Måltidsoversigt</h1>
+
+<p th:text="'Navn: ' + ${meal.name}"> </p>
+<p th:text="'Type: ' + ${meal.mealType}"> </p>
+<p th:text="'Beskrivelse: ' + ${meal.description}"> </p>
+<p th:text="'Leverings dato: ' + ${meal.date}"> </p>
+<p th:text="'Elementer: ' + ${meal.elements}"> </p>
+
 <p>
+
     <a href="/mealMenu">
-        <button> Måltids menu</button>
+        <button> Måltidsmenu</button>
     </a>
 </p>
+
 </body>
 </html>

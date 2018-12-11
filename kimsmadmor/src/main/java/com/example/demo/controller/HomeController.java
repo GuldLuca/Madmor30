@@ -80,10 +80,10 @@ public class HomeController {
         return "mealMenu";
     }
 
-    @GetMapping("/mealDetails")
-    public String details(@RequestParam(value = "id", defaultValue = "1") int id, Model model) {
+    @RequestMapping("/mealDetails")
+    public String mealDetails(@RequestParam(value = "id", defaultValue = "1") int id, Model model) {
         model.addAttribute("meal", meals.get(id - 1));
-        return "details";
+        return "mealDetails";
     }
 
     @RequestMapping(value = "/addevent", method = RequestMethod.GET)
