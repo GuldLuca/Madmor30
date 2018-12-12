@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}"/>
 </head>
 <body>
-<h2>Er du sikker på at du vil slette dette måltid?</h2>
+<h2>Er du sikker på at du vil slette måltidet?</h2>
 
 <form action="/mealDelete" th:each="meal: ${meal}" method="post">
-    <p th:text="${meal.id + ' ' + meal.name}"> </p>
     <input type="hidden" th:field="${meal.id}"/>
     <input type="submit" value="Ja"/>
-
 </form>
 <a href="/mealMenu"> <button>Nej </button> </a>
 </body>

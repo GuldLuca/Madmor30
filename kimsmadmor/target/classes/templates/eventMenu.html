@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+</head>
+<body>
+<h1>  Event menu</h1>
+
+<p>
+    <a href="/addevent">
+        <button> Opret event</button>
+    </a>
+</p>
+<table>
+    <thead>
+    <tr>
+        <th>Navn</th>
+        <th>Dato</th>
+        <th>Max antal deltagere</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="event: ${events}">
+        <td th:text="${event.name}"> </td>
+        <td th:text="${event.date}"> </td>
+        <td th:text="${event.capacity}"> </td>
+
+        <td>
+            <a th:href="@{'/eventDetails?id='+${event.id}}">
+                <button>Detaljer</button>
+            </a>
+            <a th:href="@{'/eventUpdate?id='+${event.id}}">
+                <button>Opdater</button>
+            </a>
+            <a th:href="@{'/eventDelete?id='+${event.id}}">
+                <button>Slet</button>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}"/>
+</head>
+<body>
+<h1>Tilføj måltid</h1>
+<form action="/mealAdd" method="post">
+    Navn: <input type="text" name="name" placeholder="type here.."> <br> <br>
+    Kategori: <select name="mealType">
+        <option value="1">Vegetarisk</option>
+        <option value="2">Vegansk</option>
+        <option value="3">Kød</option>
+        <option value="4">Fisk</option>
+    </select>
+    Beskrivelse: <input type="text" name="description" placeholder="type here..">
+    Leveringsdato: <input type="date" name="date" placeholder="type here..">
+    Elementer: <input type="text" name="elements" placeholder="type here..">
+    <input type="submit" name="mealAdd" value="Tilføj">
+</form>
+
+</body>
+</html>

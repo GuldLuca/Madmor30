@@ -36,16 +36,16 @@ public class HomeController {
         return "mealMenu";
     }
 
-    @RequestMapping(value = "/addmeal", method = RequestMethod.GET)
+    @RequestMapping(value = "/mealAdd", method = RequestMethod.GET)
     public String getAddMeal()
     {
-        return "addmeal"; // henviser til addperson.html
+        return "mealAdd"; // henviser til addperson.html
     }
 
-    @RequestMapping(value = "/addmeal", method = RequestMethod.POST)
+    @RequestMapping(value = "/mealAdd", method = RequestMethod.POST)
     public String addMeal(Model model, Meal meal){
         dbManager.addMeal(meal);
-        System.out.println("modtaget Person " + meal.getName());
+        System.out.println("modtaget meal " + meal.getName());
         meals = dbManager.readAllMeals();
         model.addAttribute(mealStr, meals);
         return "mealMenu"; // henviser til list.html
@@ -95,7 +95,7 @@ public class HomeController {
         return "addevent"; // henviser til addperson.html
     }
 
-    @RequestMapping(value = "/addevent", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/addevent", method = RequestMethod.POST)
     public String addEvent(Model model, Event event){
         dbManager.addEvent(event);
         System.out.println("modtaget Event " + event.getName());
@@ -119,7 +119,7 @@ public class HomeController {
         events = dbManager.readAllEvents();
         model.addAttribute(eventStr, events);
         return "list";
-    }
+    }*/
 
 
 

@@ -117,7 +117,7 @@ public class DBManager {
         }
     }
 
-    public void addEvent(Event event){
+   /* public void addEvent(Event event){
         String sql = "INSERT INTO event (event_name, event_description, event_start, event_address, max_capacity, price_id) VALUES (?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -156,13 +156,13 @@ public class DBManager {
         }
         return eventList;
     }
-
+*/
     public Meal readMeal(int id)
     {
         return null;
     }
 
-    public void updateEvent(Event event)
+    /*public void updateEvent(Event event)
     {
         String sql = "UPDATE event SET event_name = ? , event_description = ?, event_start = ?, event_address = ?, max_capacity = ?, price_id = ? WHERE id = ?";
         try {
@@ -193,7 +193,7 @@ public class DBManager {
         catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
 
 }
