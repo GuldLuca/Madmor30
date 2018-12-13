@@ -117,6 +117,67 @@ public class DBManager {
         }
     }
 
+    public List<Customer> getAllCustomersWithMealOrders(){
+        String sql = "" +
+                "SELECT customer_id, customer_firstname, customer_lastname, customer_address " +
+                "FROM customer " +
+                "WHERE customer_id " +
+                "EXISTS IN (" +
+                    "SELECT customer_id " +
+                    "FROM customer_meal_linkedlist)" +
+                " ORDER BY customer_firstname";
+        List<Customer> customerList = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                int id = resultSet.getInt(1);
+                String firstName = resultSet.getString(2);
+                String lastName = resultSet.getString(3);
+                String adress = resultSet.getString(4);
+                    Customer c = new Customer();
+                    c.setId(id);
+                    c.setFirstname(firstName);
+                    c.setLastname(lastName);
+                    c.setAdress(adress);
+                customerList.add(c);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return customerList;
+    }
+
+    public List<MealOrder> getMealOrdersFromID(int id){
+        String sql =
+                "SELECT customer_firstname, customer_lastname, customer_address, meal_name, meal_elements, " +
+                "meal_number_of_adults, meal_number_of_children " +
+                "FROM customer_meal_linkedlist " +
+                "INNER JOIN customer " + "ON  customer_id=customer.customer_id " +
+                "INNER JOIN meal ON meal_id=meal.meal_id " +
+                "WHERE customer_id=?";
+        List<MealOrder> mealOrderList = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery(sql);
+            while (resultSet.next()){
+                String firstName = resultSet.getString(1);
+                String lastName = resultSet.getString(2);
+                String adress = resultSet.getString(3);
+                String mealName = resultSet.getString(4);
+                String mealElements = resultSet.getString(5);
+                int numberOfAdults = resultSet.getInt(6);
+                int numberOfChildren = resultSet.getInt(7);
+                mealOrderList.add(new MealOrder(firstName,lastName, adress, mealName, mealElements,
+                        numberOfAdults,numberOfChildren));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return mealOrderList;
+    }
+
    /* public void addEvent(Event event){
         String sql = "INSERT INTO event (event_name, event_description, event_start, event_address, max_capacity, price_id) VALUES (?, ?, ?, ?, ?, ?)";
         try {

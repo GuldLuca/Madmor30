@@ -24,6 +24,15 @@ public class MealOrder {
         this.numberOfAdults = numberOfAdults;
         this.numberOfChildren = numberOfChildren;
     }
+    public MealOrder(String firstName, String lastName, String address, String mealName, String mealElements, int numberOfAdults, int numberOfChildren) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.mealName = mealName;
+        this.mealElements = mealElements;
+        this.numberOfAdults = numberOfAdults;
+        this.numberOfChildren = numberOfChildren;
+    }
 
     public String getFirstName() {
         return firstName;
