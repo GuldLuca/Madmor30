@@ -3,7 +3,6 @@ package com.example.demo.models;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.*;
-import java.sql.Date;
 
 public class DBManager {
 
@@ -15,9 +14,7 @@ public class DBManager {
 
     public static void main(String[] args)
     {
-        DBManager db = new DBManager();
 
-        System.out.println(db.getMealOrdersFromID(1).size());
     }
 
     public DBManager(){
@@ -35,7 +32,8 @@ public class DBManager {
 
     public void addMeal(Meal meal){
         String sql = "INSERT INTO meal (meal_date, meal_description, meal_name, meal_elements, meal_type_id) VALUES (?, ?, ?, ?, ?)";
-        try {
+        try
+        {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setObject(1, meal.getDate());
             statement.setString(2, meal.getDescription());
@@ -53,8 +51,8 @@ public class DBManager {
     public List<Meal> readAllMeals(){
         String sql = "SELECT * FROM meal";
         List<Meal> mealList = new ArrayList<>();
-        try {
-            //connection = DriverManager.getConnection(DB_URL,DB_USER, DB_PW);
+        try
+        {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()){
@@ -71,13 +69,6 @@ public class DBManager {
         }
         return mealList;
     }
-
-   /* public Meal readMeal(int id)
-    {
-        return null;
-    }*/
-
-
 
     public void updateMeal(Meal meal)
     {
