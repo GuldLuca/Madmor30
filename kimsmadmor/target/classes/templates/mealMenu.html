@@ -9,50 +9,49 @@
 <div class="menu-h1">
 <h1>Måltidsmenu</h1>
 </div>
-<div class="menu-add-button">
+<hr class="menu-hr">
+
 <p>
     <a href="/mealAdd">
-        <button> Tilføj måltid</button>
+        <button class="button-menu-add btn"> Tilføj måltid</button>
     </a>
 </p>
-</div>
-<div class="menu-table">
+
 <table>
     <thead>
-    <div class="menu-tr">
+
     <tr>
-        <div class="menu-th">
+
         <th>Name</th>
         <th>Type</th>
         <th>Date</th>
-        </div>
+
     </tr>
-    </div>
+
     </thead>
     <tbody>
-    <div class="menu-tr">
     <tr th:each="meal: ${meals}">
-        <div class="menu-td">
+
         <td th:text="${meal.name}"> </td>
         <td th:text="${meal.mealType}"> </td>
         <td th:text="${meal.date}"> </td>
 
         <td>
             <a th:href="@{'/mealDetails?id='+${meal.id}}">
-                <button>Detaljer</button>
+                <button class="button-detaljer btn">Detaljer</button>
             </a>
             <a th:href="@{'/mealUpdate?id='+${meal.id}}">
-                <button>Opdater</button>
+                <button class="button-opdater btn">Opdater</button>
             </a>
             <a th:href="@{'/mealDelete?id='+${meal.id}}">
-                <button>Slet</button>
+                <button class="button-slet btn">Slet</button>
             </a>
         </td>
-        </div>
+
     </tr>
-    </div>
+    <hr class="menu-hr2">
     </tbody>
 </table>
-</div>
+
 </body>
 </html>

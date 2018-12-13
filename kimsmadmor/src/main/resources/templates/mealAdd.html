@@ -6,8 +6,9 @@
     <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}"/>
 </head>
 <body>
-<h1>Tilføj måltid</h1>
-<div class="addForm">
+<h1 class="add-h1">Tilføj måltid</h1>
+<hr class="add-hr">
+<div class="add-form">
 <form action="/mealAdd" method="post">
     Navn: <input type="text" name="name" placeholder="type here.."> <br> <br>
     Kategori: <select name="mealType">
@@ -22,5 +23,6 @@
     <input type="submit" name="mealAdd" value="Tilføj">
 </form>
 </div>
+<hr class="add-hr2">
 </body>
 </html>
