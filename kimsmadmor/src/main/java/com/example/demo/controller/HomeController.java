@@ -97,5 +97,17 @@ public class HomeController {
     {
         return "addevent"; // henviser til addperson.html
     }
+    @RequestMapping("/mealPackageMenu")
+    public String mealPackageMenu(Model model) {
+        customers = dbManager.getAllCustomersWithMealOrders();
+        model.addAttribute("customer",customers);
+        return "mealPackageMenu";
+    }
+    @RequestMapping("/mealPackageContent")
+    public String mealPackageContent(@RequestParam(value = "id", defaultValue = "1") int id, Model model) {
+        mealOrders= dbManager.getMealOrdersFromID(id);
+        model.addAttribute("mealOrder",mealOrders);
+        return "mealPackageContent";
+    }
 
 }
