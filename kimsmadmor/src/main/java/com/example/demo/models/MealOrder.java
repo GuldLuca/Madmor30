@@ -1,8 +1,12 @@
 package com.example.demo.models;
-
+import java.time.LocalDate;
 public class MealOrder {
-    private Customer customer;
-    private Meal meal;
+    private String firstName;
+    private String  lastName;
+    private String address;
+    private String mealName;
+    private String mealElements;
+    private LocalDate date;
     private int numberOfAdults;
     private int numberOfChildren;
 
@@ -10,20 +14,63 @@ public class MealOrder {
 
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public MealOrder(String firstName, String lastName, String address, String mealName, String mealElements, LocalDate date, int numberOfAdults, int numberOfChildren) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.mealName = mealName;
+        this.mealElements = mealElements;
+        this.date = date;
+        this.numberOfAdults = numberOfAdults;
+        this.numberOfChildren = numberOfChildren;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public Meal getMeal() {
-        return meal;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setMeal(Meal meal) {
-        this.meal = meal;
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getMealName() {
+        return mealName;
+    }
+
+    public void setMealName(String mealName) {
+        this.mealName = mealName;
+    }
+
+    public String getMealElements() {
+        return mealElements;
+    }
+
+    public void setMealElements(String mealElements) {
+        this.mealElements = mealElements;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public int getNumberOfAdults() {
@@ -42,19 +89,10 @@ public class MealOrder {
         this.numberOfChildren = numberOfChildren;
     }
 
-    public String getCustomerName(){
-        return this.customer.getFirstname() +" " + this.customer.getLastname();
-    }
-    public String getCustomerAdresse(){
-        return this.customer.getAdress();
-    }
-    public String getMealName(){
-        return  this.meal.getName();
-    }
-    public String getMealElements(){
-        return this.meal.getElements();
-    }
     public  String getDateString(){
-        return this.meal.getDate().toString();
+        return this.toString();
+    }
+    public String getFullname(){
+        return firstName+ " "+ lastName;
     }
 }

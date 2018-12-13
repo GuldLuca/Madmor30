@@ -4,6 +4,7 @@ import com.example.demo.models.DBManager;
 import com.example.demo.models.Customer;
 import com.example.demo.models.Event;
 import com.example.demo.models.Meal;
+import com.example.demo.models.MealOrder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,8 @@ public class HomeController {
     private static final String mealStr = "meals";
     private List<Event> events = new ArrayList<>();
     private static final String eventStr ="events";
+    private List<MealOrder> mealOrders = new ArrayList<>();
+    private static final String mealOrderStr = "mealOrders";
 
 
     @RequestMapping("/")
