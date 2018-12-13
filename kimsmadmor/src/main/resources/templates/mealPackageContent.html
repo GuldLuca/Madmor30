@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <meta charset="UTF-8">
+    <title>Title</title>
     <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}"/>
 </head>
 <body>
@@ -18,8 +19,8 @@
     </thead>
     <tbody>
     <tr th:each="mealOrder: ${mealOrders}">
-        <td th:text="${mealOrder.firstName + ' ' +  MealOrder.lastName}"> </td>
-        <td th:text="${mealOrder.adress}"> </td>
+        <td th:text="${mealOrder.firstName + ' ' +  mealOrder.lastName}"> </td>
+        <td th:text="${mealOrder.address}"> </td>
         <td th:text="${mealOrder.mealName}"> </td>
         <td th:text="${mealOrder.mealElements}"> </td>
         <td th:text="${mealOrder.numberOfAdults}"> </td>
@@ -28,11 +29,11 @@
     </tr>
     </tbody>
 </table>
-<a th:href="/mealPackageMenu">
+<a href="/mealPackageMenu">
 <button>Måltidskasse menu</button>
 </a>
 
-<a th:href="/index">
+<a href="/">
     <button>Hoved menu</button>
 </a>
 

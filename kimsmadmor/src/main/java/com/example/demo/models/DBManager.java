@@ -15,7 +15,9 @@ public class DBManager {
 
     public static void main(String[] args)
     {
+        DBManager db = new DBManager();
 
+        System.out.println(db.getMealOrdersFromID(1).size());
     }
 
     public DBManager(){
@@ -115,7 +117,7 @@ public class DBManager {
                 "SELECT customer_id, customer_firstname, customer_lastname, customer_address " +
                 "FROM customer " +
                 "WHERE customer_id " +
-                "EXISTS IN (" +
+                "IN (" +
                     "SELECT customer_id " +
                     "FROM customer_meal_linkedlist)" +
                 " ORDER BY customer_firstname";
@@ -143,17 +145,11 @@ public class DBManager {
 
     public List<MealOrder> getMealOrdersFromID(int id){
         String sql =
-                "SELECT customer_firstname, customer_lastname, customer_address, meal_name, meal_elements, " +
-                "meal_number_of_adults, meal_number_of_children " +
-                "FROM customer_meal_linkedlist " +
-                "INNER JOIN customer " + "ON  customer_id=customer.customer_id " +
-                "INNER JOIN meal ON meal_id=meal.meal_id " +
-                "WHERE customer_id=?";
+                "SELECT customer_firstname, customer_lastname, customer_address, meal_name, meal_elements, meal_number_of_adults, meal_number_of_children FROM customer_meal_linkedlist INNER JOIN customer ON customer_meal_linkedlist.customer_id= customer.customer_id INNER JOIN meal ON customer_meal_linkedlist.meal_id = meal.meal_id WHERE customer_meal_linkedlist.customer_id="+id;
         List<MealOrder> mealOrderList = new ArrayList<>();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
-            ResultSet resultSet = preparedStatement.executeQuery(sql);
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()){
                 String firstName = resultSet.getString(1);
                 String lastName = resultSet.getString(2);

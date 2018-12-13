@@ -92,21 +92,16 @@ public class HomeController {
         return "mealDetails";
     }
 
-    @RequestMapping(value = "/addevent", method = RequestMethod.GET)
-    public String getAddEvent()
-    {
-        return "addevent"; // henviser til addperson.html
-    }
     @RequestMapping("/mealPackageMenu")
     public String mealPackageMenu(Model model) {
         customers = dbManager.getAllCustomersWithMealOrders();
-        model.addAttribute("customer",customers);
+        model.addAttribute(customerStr,customers);
         return "mealPackageMenu";
     }
     @RequestMapping("/mealPackageContent")
     public String mealPackageContent(@RequestParam(value = "id", defaultValue = "1") int id, Model model) {
         mealOrders= dbManager.getMealOrdersFromID(id);
-        model.addAttribute("mealOrder",mealOrders);
+        model.addAttribute(mealOrderStr,mealOrders);
         return "mealPackageContent";
     }
 
