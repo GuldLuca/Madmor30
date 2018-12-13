@@ -7,11 +7,12 @@
 </head>
 <body>
 <h2>Er du sikker på at du vil slette måltidet?</h2>
-
+<div class="deleteForm">
 <form action="/mealDelete" th:each="meal: ${meal}" method="post">
     <input type="hidden" th:field="${meal.id}"/>
     <input type="submit" value="Ja"/>
 </form>
+</div>
 <a href="/mealMenu"> <button>Nej </button> </a>
 </body>
 </html>

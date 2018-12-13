@@ -1,0 +1,235 @@
+body
+{
+    margin: 0;
+    font-family: Rockwell;
+    height: 100%;
+    width: 100%;
+    position: static;
+    background-image: url("../images/spotlight-03-NR.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.index-h1
+{
+    position: absolute;
+    top: 300px;
+    left:400px;
+}
+.index-para
+{
+    position:absolute;
+    top:400px;
+    left:400px;
+
+}
+
+.index-hr
+{
+    position: absolute;
+    padding: 0;
+    height: 0;
+    width: 60%;
+    max-height: 0;
+    font-size: 5px;
+    line-height: 0;
+    clear: both;
+    border: none;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #ffffff;
+    top: 400px;
+    left: 400px;
+}
+
+.index-hr2
+{
+    position: absolute;
+    padding: 0;
+    height: 0;
+    width: 60%;
+    max-height: 0;
+    font-size: 5px;
+    line-height: 0;
+    clear: both;
+    border: none;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #ffffff;
+    top: 800px;
+    left: 400px;
+}
+
+.button-menu
+{
+    font-size: 24px;
+    font-family: Rockwell;
+    background-color: slategrey;
+    color: white;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.button-menu:hover
+{
+    background-color: cadetblue;
+    color: white;
+}
+
+.menu-h1
+{
+    position: absolute;
+    top: 300px;
+    left:400px;
+}
+
+table
+{
+    border-collapse: collapse;
+    width: 50%;
+    border-radius: 2px;
+    position: absolute;
+    top: 500px;
+    left: 400px;
+}
+
+th, td
+{
+    border: 1px solid black;
+    text-align: left;
+    /*padding: 8px;*/
+    padding: 5px 8px 5px 8px;
+}
+
+tr:nth-child(even)
+{
+    background-color: #dddddd;
+}
+
+tr
+{
+    background-color: white;
+}
+
+.btn
+{
+    background-color: #4CAF50;
+    border: 2px;
+    color: white;
+    padding: 10px 13px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    border-radius: 5px;
+    font-family: Rockwell;
+    cursor: pointer;
+}
+
+.btn:hover
+{
+    background-color: #aaaaaa;
+}
+
+.button-detaljer
+{
+    background-color: darkslateblue;
+}
+
+.button-opdater
+{
+    background-color: blueviolet;
+}
+
+.button-slet
+{
+    background-color: red;
+}
+
+.button-menu-add
+{
+    background-color: #4CAF50;
+    position: absolute;
+    top: 400px;
+    left:400px;
+}
+
+.menu-hr
+{
+    position: absolute;
+    padding: 0;
+    height: 0;
+    width: 60%;
+    max-height: 0;
+    font-size: 5px;
+    line-height: 0;
+    clear: both;
+    border: none;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #ffffff;
+    top: 370px;
+    left: 400px;
+}
+
+.menu-hr2
+{
+    position: absolute;
+    padding: 0;
+    height: 0;
+    width: 60%;
+    max-height: 0;
+    font-size: 5px;
+    line-height: 0;
+    clear: both;
+    border: none;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #ffffff;
+    top: 900px;
+    left: 400px;
+}
+
+.add-h1
+{
+    position: absolute;
+    top: 300px;
+    left:400px;
+}
+
+.add-hr
+{
+    position: absolute;
+    padding: 0;
+    height: 0;
+    width: 60%;
+    max-height: 0;
+    font-size: 5px;
+    line-height: 0;
+    clear: both;
+    border: none;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #ffffff;
+    top: 370px;
+    left: 400px;
+}
+
+.add-hr2
+{
+    position: absolute;
+    padding: 0;
+    height: 0;
+    width: 60%;
+    max-height: 0;
+    font-size: 5px;
+    line-height: 0;
+    clear: both;
+    border: none;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #ffffff;
+    top: 850px;
+    left: 400px;
+}
+
+.add-form
+{
+    
+}

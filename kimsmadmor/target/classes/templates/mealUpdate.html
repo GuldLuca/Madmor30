@@ -7,6 +7,7 @@
 </head>
 <body>
 <h1>Opdater måltids informationer</h1>
+<div class="updateForm">
 <form action="/mealUpdate" th:each="meal: ${meal}" method= "post">
     <label>Navn:</label>
     <input type="text" th:field="${meal.name}" value="${meal.name}" required="true"/>
@@ -20,7 +21,7 @@
     <input type="text" th:field="${meal.elements}" value="${meal.elements}" required="true"/>
     <input type="submit" value="Opdater"/>
 </form>
-
+</div>
 <p>
     <a href="/mealMenu">
         <button> Måltids menu</button>

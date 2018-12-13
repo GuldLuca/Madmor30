@@ -98,32 +98,4 @@ public class HomeController {
         return "addevent"; // henviser til addperson.html
     }
 
-    /*@RequestMapping(value = "/addevent", method = RequestMethod.POST)
-    public String addEvent(Model model, Event event){
-        dbManager.addEvent(event);
-        System.out.println("modtaget Event " + event.getName());
-        events = dbManager.readAllEvents();
-        model.addAttribute(eventStr, events);
-        return "list"; // henviser til list.html
-    }
-
-    @RequestMapping(value = "/updateevent", method = RequestMethod.GET)
-    public String getUpdateEvent(Model model, Event event)
-    {
-        events = dbManager.readAllEvents();
-        model.addAttribute(eventStr, events);
-        return "updateevent"; //html
-    }
-
-    @RequestMapping(value = "/updateevent",  method = RequestMethod.POST)
-    public String updateEvent(Model model, Event event){
-        dbManager.updateEvent(event);
-        System.out.println("Event " + event.getName() + " modtaget");
-        events = dbManager.readAllEvents();
-        model.addAttribute(eventStr, events);
-        return "list";
-    }*/
-
-
-
 }
