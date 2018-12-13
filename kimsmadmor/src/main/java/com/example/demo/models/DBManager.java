@@ -15,13 +15,6 @@ public class DBManager {
 
     public static void main(String[] args)
     {
-        DBManager db = new DBManager();
-        db.dbInit();
-        /*String str="2015-03-31";
-        Date date=Date.valueOf(str);//converting string into sql date
-        Meal meal = new Meal(3, date,"ålålålål", "Noget med Karry", "Karry, gulerødder", "2");
-        db.addMeal(meal);*/
-        System.out.println(db.readAllMeals());
 
     }
 
