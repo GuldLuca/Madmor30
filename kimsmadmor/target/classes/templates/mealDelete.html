@@ -6,13 +6,13 @@
     <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}"/>
 </head>
 <body>
-<h2>Er du sikker på at du vil slette måltidet?</h2>
-<div class="deleteForm">
+<h1 class="delete-h1">Er du sikker på at du vil slette måltidet?</h1>
+<div class="delete-form">
 <form action="/mealDelete" th:each="meal: ${meal}" method="post">
     <input type="hidden" th:field="${meal.id}"/>
-    <input type="submit" value="Ja"/>
+    <input class="button-ja" type="submit" value="Ja"/>
 </form>
 </div>
-<a href="/mealMenu"> <button>Nej </button> </a>
+<a href="/mealMenu"> <button class="button-nej">Nej </button> </a>
 </body>
 </html>

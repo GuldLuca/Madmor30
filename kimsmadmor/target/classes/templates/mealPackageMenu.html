@@ -6,9 +6,9 @@
     <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}"/>
 </head>
 <body>
-<h1> Måltidskasse Menu</h1>
-
-<table>
+<h1 class="måltidskasse-menu-h1"> Måltidskasse Menu</h1>
+<hr class="kasse-hr">
+<table class="kasse-table">
     <thead>
     <tr>
         <th>Kundenavn</th>
@@ -23,7 +23,7 @@
 
         <td>
             <a th:href="@{'/mealPackageContent?id='+${customer.id}}">
-                <button>Bestillings indhold</button>
+                <button class="button-indhold">Bestillingsindhold</button>
             </a>
 
         </td>
@@ -31,7 +31,8 @@
     </tbody>
 </table>
 <a href="/">
-    <button>Hovedmenu</button>
+    <button class="button-hovedmenu">Hovedmenu</button>
 </a>
+<hr class="kasse-hr2">
 </body>
 </html>

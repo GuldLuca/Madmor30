@@ -188,6 +188,26 @@ tr
     left: 400px;
 }
 
+.button-hovedmenu
+{
+    background-color: lightskyblue;
+    font-size: 12px;
+    font-family: Rockwell;
+    color: white;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+    cursor: pointer;
+    position: absolute;
+    top: 850px;
+    left:1450px;
+}
+
+.button-hovedmenu:hover
+{
+    background-color: slategrey;
+}
+
 .add-h1
 {
     position: absolute;
@@ -231,5 +251,322 @@ tr
 
 .add-form
 {
+    position: absolute;
+    top: 600px;
+    left: 400px;
 
+}
+
+.button-add
+{
+    background-color: #4CAF50;
+    font-size: 12px;
+    font-family: Rockwell;
+    color: white;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.måltidsoversigt-h1
+{
+    position: absolute;
+    top: 300px;
+    left:400px;
+}
+
+.måltids-hr
+{
+    position: absolute;
+    padding: 0;
+    height: 0;
+    width: 60%;
+    max-height: 0;
+    font-size: 5px;
+    line-height: 0;
+    clear: both;
+    border: none;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #ffffff;
+    top: 370px;
+    left: 400px;
+}
+
+.måltids-hr1
+{
+    position: absolute;
+    padding: 0;
+    height: 0;
+    width: 60%;
+    max-height: 0;
+    font-size: 5px;
+    line-height: 0;
+    clear: both;
+    border: none;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #ffffff;
+    top: 650px;
+    left: 400px;
+}
+
+.details-para
+{
+    position: absolute;
+    top: 400px;
+    left: 400px;
+}
+
+.button-måltidsmenu
+{
+    background-color: darkslateblue;
+    font-size: 12px;
+    font-family: Rockwell;
+    color: white;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+    cursor: pointer;
+    position:absolute;
+    top: 600px;
+    left: 1450px;
+}
+
+.button-måltidsmenu:hover
+{
+    background-color: darkblue;
+}
+
+.update-h1
+{
+    position: absolute;
+    top: 300px;
+    left:400px;
+}
+
+.update-hr
+{
+    position: absolute;
+    padding: 0;
+    height: 0;
+    width: 60%;
+    max-height: 0;
+    font-size: 5px;
+    line-height: 0;
+    clear: both;
+    border: none;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #ffffff;
+    top: 370px;
+    left: 400px;
+}
+
+.update-hr2
+{
+    position: absolute;
+    padding: 0;
+    height: 0;
+    width: 60%;
+    max-height: 0;
+    font-size: 5px;
+    line-height: 0;
+    clear: both;
+    border: none;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #ffffff;
+    top: 800px;
+    left: 400px;
+}
+
+.update-form
+{
+    position: absolute;
+    top: 600px;
+    left: 400px;
+}
+
+.button-måltidsmenu-update
+{
+    background-color: darkslateblue;
+    font-size: 12px;
+    font-family: Rockwell;
+    color: white;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+    cursor: pointer;
+    position:absolute;
+    top: 750px;
+    left: 1450px;
+}
+
+.button-måltidsmenu-update:hover
+{
+    background-color: darkblue;
+}
+
+.button-update
+{
+    background-color: darkorchid;
+    font-size: 12px;
+    font-family: Rockwell;
+    color: white;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.delete-h1
+{
+    position: absolute;
+    top: 300px;
+    left:500px;
+}
+
+.button-ja
+{
+    background-color: #4CAF50;
+    font-size: 24px;
+    font-family: Rockwell;
+    color: white;
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 3px;
+    cursor: pointer;
+    position:absolute;
+    top: 500px;
+    left: 700px;
+}
+
+.button-ja:hover
+{
+    background-color: lawngreen;
+}
+
+.button-nej
+{
+    background-color: firebrick;
+    font-size: 24px;
+    font-family: Rockwell;
+    color: white;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+    cursor: pointer;
+    position:absolute;
+    top: 500px;
+    left: 770px;
+}
+
+.button-nej:hover
+{
+    background-color: red;
+}
+
+.måltidskasse-menu-h1
+{
+    position: absolute;
+    top: 300px;
+    left:400px;
+}
+
+.kasse-hr
+{
+    position: absolute;
+    padding: 0;
+    height: 0;
+    width: 60%;
+    max-height: 0;
+    font-size: 5px;
+    line-height: 0;
+    clear: both;
+    border: none;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #ffffff;
+    top: 370px;
+    left: 400px;
+}
+
+.kasse-hr2
+{
+    position: absolute;
+    padding: 0;
+    height: 0;
+    width: 60%;
+    max-height: 0;
+    font-size: 5px;
+    line-height: 0;
+    clear: both;
+    border: none;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #ffffff;
+    top: 600px;
+    left: 400px;
+}
+
+.kasse-table
+{
+    top: 450px;
+}
+
+.button-indhold
+{
+    background-color: rebeccapurple;
+    font-size: 12px;
+    font-family: Rockwell;
+    color: white;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.button-indhold:hover
+{
+    background-color: orchid;
+}
+
+.button-kassemenu
+{
+    background-color: darkcyan;
+    font-size: 12px;
+    font-family: Rockwell;
+    color: white;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+    cursor: pointer;
+    position: absolute;
+    top: 850px;
+    left: 1250px;
+}
+
+.button-kassemenu:hover
+{
+    background-color: aquamarine;
+}
+
+.indhold-h1
+{
+    position: absolute;
+    top: 300px;
+    left:400px;
+}
+
+.indhold-hr
+{
+    position: absolute;
+    padding: 0;
+    height: 0;
+    width: 60%;
+    max-height: 0;
+    font-size: 5px;
+    line-height: 0;
+    clear: both;
+    border: none;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #ffffff;
+    top: 800px;
+    left: 400px;
 }

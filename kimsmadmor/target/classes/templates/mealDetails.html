@@ -6,8 +6,9 @@
     <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}"/>
 </head>
 <body>
-<h1>Måltidsoversigt</h1>
-<div class="detailsPara">
+<h1 class="måltidsoversigt-h1">Måltidsoversigt</h1>
+<hr class="måltids-hr">
+<div class="details-para">
 <p th:text="'Navn: ' + ${meal.name}"> </p>
 <p th:text="'Type: ' + ${meal.mealType}"> </p>
 <p th:text="'Beskrivelse: ' + ${meal.description}"> </p>
@@ -17,9 +18,9 @@
 <p>
 
     <a href="/mealMenu">
-        <button> Måltidsmenu</button>
+        <button class="button-måltidsmenu"> Måltidsmenu</button>
     </a>
 </p>
-
+<hr class="måltids-hr1">
 </body>
 </html>

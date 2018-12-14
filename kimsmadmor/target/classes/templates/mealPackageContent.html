@@ -6,6 +6,8 @@
     <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}"/>
 </head>
 <body>
+<h1 class="indhold-h1">Indhold</h1>
+<hr class="kasse-hr">
 <table>
     <thead>
     <tr>
@@ -25,18 +27,17 @@
         <td th:text="${mealOrder.mealElements}"> </td>
         <td th:text="${mealOrder.numberOfAdults}"> </td>
         <td th:text="${mealOrder.numberOfChildren}"> </td>
-
     </tr>
     </tbody>
 </table>
+
 <a href="/mealPackageMenu">
-<button>Måltidskasse menu</button>
+<button class="button-kassemenu">Måltidskasse menu</button>
 </a>
 
 <a href="/">
-    <button>Hoved menu</button>
+    <button class="button-hovedmenu">Hoved menu</button>
 </a>
-
-
+<hr class="indhold-hr">
 </body>
 </html>
