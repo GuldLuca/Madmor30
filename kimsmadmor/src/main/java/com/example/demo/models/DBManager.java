@@ -14,8 +14,7 @@ public class DBManager {
 
     public static void main(String[] args)
     {
-        DBManager db = new DBManager();
-        System.out.println(db.getAllCustomersWithMealOrders().size());
+
     }
 
     public DBManager(){

@@ -20,14 +20,12 @@ public class HomeController {
     private static final String customerStr = "customers";
     private List<Meal> meals = new ArrayList<>();
     private static final String mealStr = "meals";
-    private List<Event> events = new ArrayList<>();
-    private static final String eventStr ="events";
     private List<MealOrder> mealOrders = new ArrayList<>();
     private static final String mealOrderStr = "mealOrders";
 
 
     @RequestMapping("/")
-    public String getIndex(Model model)
+    public String getIndex()
     {
         return "index"; //
     }
