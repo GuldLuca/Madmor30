@@ -14,7 +14,8 @@ public class DBManager {
 
     public static void main(String[] args)
     {
-
+        DBManager db = new DBManager();
+        System.out.println(db.getAllCustomersWithMealOrders().size());
     }
 
     public DBManager(){
@@ -136,7 +137,11 @@ public class DBManager {
 
     public List<MealOrder> getMealOrdersFromID(int id){
         String sql =
-                "SELECT customer_firstname, customer_lastname, customer_address, meal_name, meal_elements, meal_number_of_adults, meal_number_of_children FROM customer_meal_linkedlist INNER JOIN customer ON customer_meal_linkedlist.customer_id= customer.customer_id INNER JOIN meal ON customer_meal_linkedlist.meal_id = meal.meal_id WHERE customer_meal_linkedlist.customer_id="+id;
+                "SELECT customer_firstname, customer_lastname, customer_address, meal_name, meal_elements, meal_number_of_adults, meal_number_of_children " +
+                        "FROM customer_meal_linkedlist " +
+                        "INNER JOIN customer ON customer_meal_linkedlist.customer_id= customer.customer_id " +
+                        "INNER JOIN meal ON customer_meal_linkedlist.meal_id = meal.meal_id " +
+                        "WHERE customer_meal_linkedlist.customer_id="+id;
         List<MealOrder> mealOrderList = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();
