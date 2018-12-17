@@ -82,8 +82,8 @@ public class DBManager {
             preparedStatement.setString(4, meal.getElements());
             preparedStatement.setString(5, meal.getMealType());
             preparedStatement.setInt(6, meal.getId());
-            preparedStatement.executeUpdate();
-            System.out.println(meal.getName() + " opdateret");
+            int rows = preparedStatement.executeUpdate();
+            System.out.println(rows + " linjer opdateret");
 
         } catch (SQLException e) {
             e.printStackTrace();

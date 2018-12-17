@@ -11,6 +11,7 @@
 <div class="update-form">
 <form action="/mealUpdate" th:each="meal: ${meal}" method= "post">
     <label>Navn:</label>
+    <input type="hidden" th:field="${meal.id}"/>
     <input type="text" th:field="${meal.name}" value="${meal.name}" required="true"/>
     Kategori: <select name="mealType">
     <option value="1">Vegetarisk</option>
