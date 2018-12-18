@@ -2,7 +2,7 @@ package com.example.demo.models;
 import java.time.LocalDate;
 
 //Objekt Type hvor vi samler informationer om kunder og de måltider de har bestilt. ET MealOrder objekt Svarer til en
-// i HTML tabellen.
+// i HTML tabellen. LASSE
 public class MealOrder {
     private String firstName;
     private String  lastName;

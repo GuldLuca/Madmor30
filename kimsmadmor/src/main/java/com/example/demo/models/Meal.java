@@ -4,7 +4,7 @@ package com.example.demo.models;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-// Objekt type hvor vi samler og opbevarer informationer om måltider
+// Objekt type hvor vi samler og opbevarer informationer om måltider LUCA
 public class Meal
 {
     private int id;

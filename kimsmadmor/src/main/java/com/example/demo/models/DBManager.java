@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.util.*;
 // DBManager klassen har til opgave at kommunikerer med databasen
 public class DBManager {
-    // De 3 static final Strings udgør de nødvendige parametre der skal til for at oprette Connection objektet.
+    // De 3 static final Strings udgør de nødvendige parametre der skal til for at oprette Connection objektet. LUCA
     private static final String DB_URL = "jdbc:mysql://localhost:3306/kimsmadmor?useSSL=false&serverTimezone=UTC";
     private static final String DB_USER = "root";
     private static final String DB_PW = "glade5Hjorte!";
@@ -14,11 +14,11 @@ public class DBManager {
     private Connection connection = null;
 
     //Overskrivning af defualt constructuren. Ved at kalde dbInit i constructuren sikres det at tomme connection objekt
-    //bliver overskrevet når der laves et nyt objekt af DBManager.
+    //bliver overskrevet når der laves et nyt objekt af DBManager. LUCA
     public DBManager(){
         dbInit();
     }
-    //Sætter Connection til ikke at være et tomt Connection objekt. Printer status besked i tilfælde af fejl og succes
+    //Sætter Connection til ikke at være et tomt Connection objekt. Printer status besked i tilfælde af fejl og succes LUCA
     private void dbInit(){
         try {
             connection = DriverManager.getConnection(DB_URL,DB_USER, DB_PW);
@@ -27,7 +27,7 @@ public class DBManager {
             System.out.println("fejl i dbInit() " + e);
         }
     }
-    // Tager i mod et Meal Objekt og gemmer det i databasen.
+    // Tager i mod et Meal Objekt og gemmer det i databasen. LUCA
     public void addMeal(Meal meal){
         String sql = "INSERT INTO meal (meal_date, meal_description, meal_name, meal_elements, meal_type_id) VALUES (?, ?, ?, ?, ?)";
         try     //SQL-stringen indeholder et query med "?" i stedet for værdier. "?" bliver defineret statement.set
@@ -45,7 +45,7 @@ public class DBManager {
         }
     }
 
-    // læser alle meals i databasen, lægger dem i en arrayliste, og returnerer listen.
+    // læser alle meals i databasen, lægger dem i en arrayliste, og returnerer listen. LUCA
     public List<Meal> readAllMeals(){
         String sql = "SELECT * FROM meal";          //Query der læser alle rækker fra meal tabellen.
         List<Meal> mealList = new ArrayList<>();    //Opretter en arrayliste med Meal objekter.
@@ -68,7 +68,7 @@ public class DBManager {
         return mealList;            //Arrayliste returneres
     }
     //Tager i mod et måltid, og ændre den række der har det samme ID til at have de samme værdier
-    // som det medsendte måltid.
+    // som det medsendte måltid. LUCA
     public void updateMeal(Meal meal)
     {   //SQL query med udefinerede værdier.
         String sql = "UPDATE meal SET meal_date = ? , meal_description = ?, meal_name = ?, meal_elements = ?, meal_type_id = ? WHERE meal_id = ?";
@@ -88,7 +88,7 @@ public class DBManager {
         }
     }
 
-    //Tager imod et måltid og bruger dennes id til at slette en række i databasen.
+    //Tager imod et måltid og bruger dennes id til at slette en række i databasen. LUCA
     public void deleteMeal(Meal meal){
         String sql = "DELETE FROM meal WHERE meal_id = ?";
         try
@@ -102,7 +102,7 @@ public class DBManager {
             e.printStackTrace();
         }
     }
-    //Returnere en arrayliste med alle kunder der har afgivet en måltids bestilling.
+    //Returnere en arrayliste med alle kunder der har afgivet en måltids bestilling. LASSE
     public List<Customer> getAllCustomersWithMealOrders(){
         String sql = "" +
                 "SELECT customer_id, customer_firstname, customer_lastname, customer_address " +
@@ -134,7 +134,7 @@ public class DBManager {
         return customerList;        //arraylisten returneres
     }
     //Tager i mod et ID og bruger dette til at samle de nødvendige informationer fra 3 tabeller for at give nødvendige info
-    //om måltiddskassers indhold. Hver række i resultset repræsenterer en kundes bestilling.
+    //om måltiddskassers indhold. Hver række i resultset repræsenterer en kundes bestilling. LASSE
     public List<MealOrder> getMealOrdersFromID(int id){
         String sql =    //SQL Query der samler information fra customer, meal og customer_meal_linkedlist.
                 "SELECT customer_firstname, customer_lastname, customer_address, meal_name, meal_elements, meal_number_of_adults, meal_number_of_children " +

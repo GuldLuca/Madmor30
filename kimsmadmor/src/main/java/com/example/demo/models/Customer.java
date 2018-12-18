@@ -1,5 +1,5 @@
 package com.example.demo.models;
-//Objekt Type hvor vi samler informationer om kunder og oplysninger om disse
+//Objekt Type hvor vi samler informationer om kunder og oplysninger om disse LUCA
 public class Customer
 {
     private int id;
