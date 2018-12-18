@@ -70,14 +70,14 @@ public class HomeController {
     @RequestMapping(value = "/mealDelete", method = RequestMethod.POST)
     public String mealDelete(Meal meal)
     {
-        dbManager.deleteMeal(meal);     //Slette det valgte måltid fra databasen LUCA
+        dbManager.deleteMeal(meal);     //Slette det valgte måltid fra databasen 
         return "mealMenu";              //Sender brugeren tilbage til måltidsmenuen efter sletning
     }
     //Metode der bliver kaldt når brugeren trykker på "opdater knappen". Det pågældende måltids ID bliver givet med som parameter
     @RequestMapping(value = "/mealUpdate", method = RequestMethod.GET)
     public String getUpdateMeal(@RequestParam(value = "id", defaultValue = "1") int id, Model model)
     {
-        for(Meal m : meals)                     // "Meals" traverseres indtil måltidet med det valgte id bliver fundet. LUCA
+        for(Meal m : meals)                     // "Meals" traverseres indtil måltidet med det valgte id bliver fundet. LUCA LASSE
         {                                       //Dette Måltid tilføjes Spring modellen, der overfører oplysningerne
             if(m.getId() == id)                 // fra denne til html'en.
             {
