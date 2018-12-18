@@ -5,6 +5,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
+//Denne klasse bliver ikke brugt til noget i den her iteration af programmet. objekt type der skulle samle og opbevarer
+//informationer om events
 public class Event
 {
     private int id;

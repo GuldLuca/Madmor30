@@ -4,11 +4,11 @@ package com.example.demo.models;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-
+// Objekt type hvor vi samler og opbevarer informationer om måltider
 public class Meal
 {
     private int id;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")     //Date Time Format skal specificeres så det passer med HTML
     private LocalDate date;
     private String description;
     private String name;
@@ -26,7 +26,7 @@ public class Meal
         this.mealType = mealType;
     }
 
-    public Meal()
+    public Meal()                       //Tom constructor til spring
     {
 
     }

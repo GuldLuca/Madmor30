@@ -1,5 +1,5 @@
 package com.example.demo.models;
-
+//Objekt Type hvor vi samler informationer om kunder og oplysninger om disse
 public class Customer
 {
     private int id;
@@ -14,7 +14,7 @@ public class Customer
     private boolean active;
     private String password;
 
-    public Customer()
+    public Customer()                   //tom constructor til spring
     {
 
     }

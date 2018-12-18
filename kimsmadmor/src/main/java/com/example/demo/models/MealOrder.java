@@ -1,5 +1,8 @@
 package com.example.demo.models;
 import java.time.LocalDate;
+
+//Objekt Type hvor vi samler informationer om kunder og de måltider de har bestilt. ET MealOrder objekt Svarer til en
+// i HTML tabellen.
 public class MealOrder {
     private String firstName;
     private String  lastName;
@@ -10,20 +13,10 @@ public class MealOrder {
     private int numberOfAdults;
     private int numberOfChildren;
 
-    public MealOrder() {
+    public MealOrder() {                        //Tom constructor til spring
 
     }
 
-    public MealOrder(String firstName, String lastName, String address, String mealName, String mealElements, LocalDate date, int numberOfAdults, int numberOfChildren) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.mealName = mealName;
-        this.mealElements = mealElements;
-        this.date = date;
-        this.numberOfAdults = numberOfAdults;
-        this.numberOfChildren = numberOfChildren;
-    }
     public MealOrder(String firstName, String lastName, String address, String mealName, String mealElements, int numberOfAdults, int numberOfChildren) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -98,10 +91,4 @@ public class MealOrder {
         this.numberOfChildren = numberOfChildren;
     }
 
-    public  String getDateString(){
-        return this.toString();
-    }
-    public String getFullname(){
-        return firstName+ " "+ lastName;
-    }
 }
