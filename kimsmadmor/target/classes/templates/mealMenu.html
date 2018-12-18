@@ -17,7 +17,7 @@
     </a>
 </p>
 
-<table>
+<table> <!-- table giver hjemmesiden en tabel-oversigt over de attributter vi tilskriver meals, og giver med-->
     <thead>
 
     <tr>
@@ -37,7 +37,7 @@
         <td th:text="${meal.date}"> </td>
 
         <td>
-            <a th:href="@{'/mealDetails?id='+${meal.id}}">
+            <a th:href="@{'/mealDetails?id='+${meal.id}}"> <!-- link til mealDetails-html siden for det id der er valgt-->
                 <button class="button-detaljer btn">Detaljer</button>
             </a>
             <a th:href="@{'/mealUpdate?id='+${meal.id}}">
@@ -49,11 +49,12 @@
         </td>
 
     </tr>
-    <hr class="menu-hr2">
+
     </tbody>
 </table>
 <a href="/">
     <button class="button-hovedmenu">Hovedmenu</button>
 </a>
+<hr class="menu-hr2">
 </body>
 </html>

@@ -8,8 +8,8 @@
 <body>
 <h1 class="delete-h1">Er du sikker på at du vil slette måltidet?</h1>
 <div class="delete-form">
-<form action="/mealDelete" th:each="meal: ${meal}" method="post">
-    <input type="hidden" th:field="${meal.id}"/>
+<form action="/mealDelete" th:each="meal: ${meal}" method="post"> <!-- en form der går igennem hvert meal i meal (i ental, for ikke at få alle meals)-->
+    <input type="hidden" th:field="${meal.id}"/> <!--type er hidden, fordi det ikke skal vises på siden, men id'et skal findes, for at programmet ved hvilket meal der er tale om-->
     <input class="button-ja" type="submit" value="Ja"/>
 </form>
 </div>

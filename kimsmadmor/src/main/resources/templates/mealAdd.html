@@ -3,26 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
-    <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}"/> <!-- Reference til den eksterne CSS-->
 </head>
 <body>
-<h1 class="add-h1">Tilføj måltid</h1>
+<h1 class="add-h1">Tilføj måltid</h1> <!-- Når der står class=... er det for at definerer elementer for CSS'en-->
 <hr class="add-hr">
 <div class="add-form">
-<form action="/mealAdd" method="post">
+<form action="/mealAdd" method="post"> <!-- Tilføjer elementer stående i bokse der kan manipuleres med -->
     Navn: <input type="text" name="name" placeholder="type here..">
-    Kategori: <select name="mealType">
-        <option value="1">Vegetarisk</option>
+    Kategori: <select name="mealType"> <!-- select laver en drop-down menu-->
+        <option value="1">Vegetarisk</option> <!-- på disse valg, som vi angiver-->
         <option value="2">Vegansk</option>
         <option value="3">Kød</option>
         <option value="4">Fisk</option>
     </select>
-    Beskrivelse: <input type="text" name="description" placeholder="type here..">
+    Beskrivelse: <input type="text" name="description" placeholder="type here.."> <!-- placeholder er tekst der allerede står i feltet-->
     Leveringsdato: <input type="date" name="date" placeholder="type here..">
     Elementer: <input type="text" name="elements" placeholder="type here..">
     <input class="button-add" type="submit" name="mealAdd" value="Tilføj">
 </form>
 </div>
 <hr class="add-hr2">
+<a href="/mealMenu">
+    <button class="button-add-mealMenu">Måltidsmenu</button>
+</a>
 </body>
 </html>
